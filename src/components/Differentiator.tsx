@@ -4,25 +4,25 @@ const comparisonData = [
   feature: 'Approach',
   agents: 'Transactional',
   forums: 'Emotional / Anecdotal',
-  returnease: 'Owner-aligned'
+  returnease: 'Single accountable partner'
 },
 {
   feature: 'Speed',
   agents: 'Slow (Vendor dependent)',
   forums: '6 months of trial & error',
-  returnease: 'Setup in 30 Days'
+  returnease: 'Execution plan in 10 days'
 },
 {
   feature: 'Deliverable',
   agents: 'PDF Brochures',
   forums: 'Outdated Posts',
-  returnease: 'Notion-based Workspace'
+  returnease: 'Execution workspace + checklists'
 },
 {
   feature: 'System',
   agents: 'Ad-hoc fixes',
   forums: 'Crowdsourced guesses',
-  returnease: 'Pre-sequenced Protocol'
+  returnease: 'Dependency-aware relocation protocol'
 }];
 
 export function Differentiator() {
@@ -34,7 +34,8 @@ export function Differentiator() {
             Why ReturnEase?
           </h2>
           <p className="text-lg text-ink/70 font-medium">
-            Built by Product Leaders, for Global Indians.
+            One integrated relocation command center for tax, school, housing, and
+            first-90-day execution.
           </p>
         </div>
 

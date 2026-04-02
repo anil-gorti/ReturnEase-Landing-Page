@@ -107,7 +107,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
       <div className="w-full max-w-xl bg-cream border-2 border-ink shadow-solid overflow-hidden">
         <div className="flex items-center justify-between px-6 py-4 border-b-2 border-ink bg-white">
           <div>
-            <h2 className="text-2xl text-ink">Contact Us</h2>
+            <h2 className="text-2xl text-ink">CONTACT US</h2>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/45 mt-1">
               Tell us about your move
             </p>
@@ -203,10 +203,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
               />
             </label>
 
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-xs font-medium text-ink/50">
-                No database yet. We currently route this to our contact inbox.
-              </p>
+            <div className="flex items-center justify-end">
               <button
                 type="submit"
                 disabled={submitState === 'submitting'}
@@ -218,7 +215,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                   </>
                 ) : (
                   <>
-                    Contact Us
+                    CONTACT US
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}

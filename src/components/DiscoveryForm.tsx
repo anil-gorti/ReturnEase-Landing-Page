@@ -14,7 +14,9 @@ import { trackEvent } from '../lib/analytics';
 type DiscoveryData = {
   origin: string;
   destination: string;
+  familyMembers: string;
   hasKids: boolean | null;
+  childrenAges: string;
   hasEquity: boolean | null;
   consent: boolean;
 };
@@ -41,7 +43,9 @@ export function DiscoveryForm() {
   const [formData, setFormData] = useState<DiscoveryData>({
     origin: '',
     destination: '',
+    familyMembers: '',
     hasKids: null,
+    childrenAges: '',
     hasEquity: null,
     consent: false,
   });
@@ -96,7 +100,23 @@ export function DiscoveryForm() {
   const isStepValid = () => {
     if (step === 1) return formData.origin !== '';
     if (step === 2) return formData.destination !== '';
-    if (step === 3) return formData.hasKids !== null;
+    if (step === 3) {
+      const members = Number(formData.familyMembers);
+      const hasValidMembers =
+        formData.familyMembers.trim() !== '' &&
+        Number.isFinite(members) &&
+        members >= 1;
+      if (!hasValidMembers) {
+        return false;
+      }
+      if (formData.hasKids === null) {
+        return false;
+      }
+      if (formData.hasKids && formData.childrenAges.trim() === '') {
+        return false;
+      }
+      return true;
+    }
     if (step === 4) return formData.hasEquity !== null;
     return true;
   };
@@ -104,11 +124,18 @@ export function DiscoveryForm() {
   const mailtoLink = useMemo(() => {
     const subject = encodeURIComponent('ReturnEase Blueprinting Call Request');
     const body = encodeURIComponent(
-      `Hi ReturnEase Team,\n\nI'd like to book a 30-min Blueprinting Call.\n\nMy Details:\n- Moving from: ${formData.origin}\n- Moving to: ${formData.destination}\n- School-age children: ${formData.hasKids ? 'Yes' : 'No'}\n- US-based Equity/RSUs: ${formData.hasEquity ? 'Yes' : 'No'}\n\nLooking forward to speaking.`
+      `Hi ReturnEase Team,\n\nI'd like to book a 30-min Blueprinting Call.\n\nMy Details:\n- Moving from: ${formData.origin}\n- Moving to: ${formData.destination}\n- Family members: ${formData.familyMembers}\n- School-age children: ${formData.hasKids ? 'Yes' : 'No'}\n- Ages of children: ${formData.hasKids ? formData.childrenAges : 'N/A'}\n- US-based Equity/RSUs: ${formData.hasEquity ? 'Yes' : 'No'}\n\nLooking forward to speaking.`
     );
 
     return `mailto:${siteConfig.contactEmail}?subject=${subject}&body=${body}`;
-  }, [formData.destination, formData.hasEquity, formData.hasKids, formData.origin]);
+  }, [
+    formData.childrenAges,
+    formData.destination,
+    formData.familyMembers,
+    formData.hasEquity,
+    formData.hasKids,
+    formData.origin,
+  ]);
 
   const bookingLink = siteConfig.bookingUrl.startsWith('mailto:')
     ? mailtoLink
@@ -126,7 +153,9 @@ export function DiscoveryForm() {
     const leadPayload = {
       origin: formData.origin,
       destination: formData.destination,
+      familyMembers: formData.familyMembers,
       hasKids: formData.hasKids ? 'Yes' : 'No',
+      childrenAges: formData.hasKids ? formData.childrenAges : 'N/A',
       hasEquity: formData.hasEquity ? 'Yes' : 'No',
       readinessScore: readinessData.score,
       riskFlags: readinessData.flags.map((flag) => flag.label).join(', '),
@@ -298,18 +327,39 @@ export function DiscoveryForm() {
                 {step === 3 && (
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-2xl font-serif text-ink mb-1">Do you have school-age children?</h3>
+                      <h3 className="text-2xl font-serif text-ink mb-1">Tell us about your family.</h3>
                       <p className="text-sm text-ink/50 font-medium">
-                        This activates the Education Planning module.
+                        This helps us personalize housing, school, and city sequencing.
                       </p>
                     </div>
+                    <label className="block">
+                      <span className="block text-[11px] font-bold uppercase tracking-[0.14em] text-ink/60 mb-2">
+                        Family Members
+                      </span>
+                      <input
+                        type="number"
+                        min={1}
+                        value={formData.familyMembers}
+                        onChange={(event) =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            familyMembers: event.target.value,
+                          }))
+                        }
+                        className="w-full bg-white border-2 border-ink px-4 py-2.5 text-sm font-medium text-ink focus:outline-none focus:border-amber-600"
+                        placeholder="Total members moving"
+                      />
+                    </label>
+                    <div>
+                      <p className="text-sm text-ink/50 font-medium mb-3">
+                        Do you have school-age children?
+                      </p>
                     <div className="grid grid-cols-2 gap-4">
                       <button
                         type="button"
                         aria-pressed={formData.hasKids === true}
                         onClick={() => {
                           setFormData((prev) => ({ ...prev, hasKids: true }));
-                          setStep(4);
                           trackEvent('form_step_completed', {
                             step: 3,
                             answer: 'has_kids_yes',
@@ -327,8 +377,11 @@ export function DiscoveryForm() {
                         type="button"
                         aria-pressed={formData.hasKids === false}
                         onClick={() => {
-                          setFormData((prev) => ({ ...prev, hasKids: false }));
-                          setStep(4);
+                          setFormData((prev) => ({
+                            ...prev,
+                            hasKids: false,
+                            childrenAges: '',
+                          }));
                           trackEvent('form_step_completed', {
                             step: 3,
                             answer: 'has_kids_no',
@@ -343,6 +396,26 @@ export function DiscoveryForm() {
                         No
                       </button>
                     </div>
+                    </div>
+                    {formData.hasKids === true && (
+                      <label className="block">
+                        <span className="block text-[11px] font-bold uppercase tracking-[0.14em] text-ink/60 mb-2">
+                          Ages of Children
+                        </span>
+                        <input
+                          type="text"
+                          value={formData.childrenAges}
+                          onChange={(event) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              childrenAges: event.target.value,
+                            }))
+                          }
+                          className="w-full bg-white border-2 border-ink px-4 py-2.5 text-sm font-medium text-ink focus:outline-none focus:border-amber-600"
+                          placeholder="Example: 5, 9, 13"
+                        />
+                      </label>
+                    )}
                     {formData.hasKids === true && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -435,7 +508,8 @@ export function DiscoveryForm() {
                         <span className="text-2xl font-serif text-ink/30">/100</span>
                       </div>
                       <p className="text-sm text-ink/50 font-medium mt-2">
-                        {formData.origin} -&gt; {formData.destination} • {readinessData.flags.length} risk
+                        {formData.origin} -&gt; {formData.destination} • Family size:{' '}
+                        {formData.familyMembers} • {readinessData.flags.length} risk
                         flag{readinessData.flags.length !== 1 ? 's' : ''} identified
                       </p>
                     </div>

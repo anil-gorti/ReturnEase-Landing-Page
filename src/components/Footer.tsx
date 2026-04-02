@@ -28,8 +28,8 @@ export function Footer({ onOpenContact }: FooterProps) {
                   cta: 'contact_us',
                 });
               }}
-              className="hover:text-amber-600 transition-colors">
-              Contact Us
+              className="uppercase hover:text-amber-600 transition-colors">
+              CONTACT US
             </button>
             <a
               href={siteConfig.termsPath}

@@ -57,7 +57,7 @@ export function SiteHeader({ onOpenContact }: SiteHeaderProps) {
             }}
             className="inline-flex items-center gap-2 bg-amber-600 text-white px-5 py-2.5 text-sm font-bold uppercase tracking-wider border-2 border-ink shadow-solid hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-solid-sm transition-all">
             <MessageSquare className="w-4 h-4" />
-            Contact Us
+            CONTACT US
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -72,7 +72,7 @@ export function SiteHeader({ onOpenContact }: SiteHeaderProps) {
             });
           }}
           className="md:hidden inline-flex items-center gap-1.5 bg-amber-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider border-2 border-ink shadow-solid-sm">
-          Contact Us
+          CONTACT US
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
