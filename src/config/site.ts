@@ -1,9 +1,9 @@
 export const siteConfig = {
   siteName: 'ReturnEase',
   siteUrl: 'https://returnease.in',
-  title: 'ReturnEase | Plan Your India Return in 180 Days',
+  title: 'ReturnEase | Plan Your India Return with Confidence',
   description:
-    'Return to India with confidence. ReturnEase gives NRI tech families a sequenced 180-day playbook covering tax, school admissions, housing, and landing logistics.',
+    'Return to India with confidence. ReturnEase gives NRI tech families a sequenced relocation playbook covering tax, school admissions, housing, and landing logistics.',
   contactEmail: 'hello@returnease.in',
   linkedInUrl: 'https://www.linkedin.com/company/returnease',
   termsPath: '/terms.html',

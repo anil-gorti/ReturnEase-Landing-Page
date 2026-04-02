@@ -44,7 +44,7 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl md:text-6xl leading-[1.15] mb-6 text-ink">
-              The 180-Day Operating System for NRI Tech Families.
+              The Operating System for NRI Tech Families.
             </h1>
 
             <p className="text-lg text-ink/80 mb-10 leading-relaxed font-medium">

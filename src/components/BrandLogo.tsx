@@ -32,8 +32,9 @@ export function BrandLogo({ compact = false }: BrandLogoProps) {
         </svg>
       </span>
       <span className="leading-tight">
-        <span className={`block font-serif text-ink ${compact ? 'text-xl' : 'text-2xl'}`}>
-          ReturnEase
+        <span
+          className={`block font-serif text-ink tracking-[0.04em] ${compact ? 'text-xl' : 'text-2xl'}`}>
+          RETURNEASE
         </span>
         {!compact && (
           <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-ink/45">
