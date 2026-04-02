@@ -14,7 +14,7 @@ export function Footer({ onOpenContact }: FooterProps) {
           <div className="text-center md:text-left">
             <BrandLogo compact />
             <div className="text-ink/60 text-xs font-bold uppercase tracking-[0.16em] mt-2">
-              The Operating System for NRIs.
+              Built for families moving back to India.
             </div>
           </div>
 

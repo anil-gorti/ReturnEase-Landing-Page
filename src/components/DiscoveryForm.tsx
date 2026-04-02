@@ -513,7 +513,7 @@ export function DiscoveryForm() {
                           >
                             {submitState === 'submitting'
                               ? 'Submitting your discovery...'
-                              : 'Get My Personalized Playbook'}
+                              : 'Get Personalized Playbook'}
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                           </button>
 

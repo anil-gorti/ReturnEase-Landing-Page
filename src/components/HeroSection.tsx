@@ -40,11 +40,11 @@ export function HeroSection() {
             
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-50 border-2 border-ink text-amber-700 text-sm font-bold uppercase tracking-wider mb-8 shadow-solid-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse border border-ink"></span>
-              ReturnEase OS v2.0
+              ReturnEase for Returnees
             </div>
 
             <h1 className="text-4xl md:text-6xl leading-[1.15] mb-6 text-ink">
-              The Operating System for NRI Tech Families.
+              Relocation Clarity for Families Moving Home to India.
             </h1>
 
             <p className="text-lg text-ink/80 mb-10 leading-relaxed font-medium">
@@ -63,7 +63,7 @@ export function HeroSection() {
                 }
                 className="group flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3.5 font-bold border-2 border-ink shadow-solid hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-solid-sm transition-all">
                 
-                Get My Personalized Playbook
+                Get Personalized Playbook
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
