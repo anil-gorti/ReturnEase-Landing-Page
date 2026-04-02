@@ -1,7 +1,12 @@
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../lib/analytics';
 import { BrandLogo } from './BrandLogo';
-export function Footer() {
+
+type FooterProps = {
+  onOpenContact: () => void;
+};
+
+export function Footer({ onOpenContact }: FooterProps) {
   return (
     <footer className="bg-cream py-12">
       <div className="max-w-7xl mx-auto px-6">
@@ -14,17 +19,18 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6 text-sm font-bold text-ink/60 uppercase tracking-wider">
-            <a
-              href={`mailto:${siteConfig.contactEmail}`}
-              onClick={() =>
+            <button
+              type="button"
+              onClick={() => {
+                onOpenContact();
                 trackEvent('cta_click', {
                   location: 'footer',
                   cta: 'contact_us',
-                })
-              }
+                });
+              }}
               className="hover:text-amber-600 transition-colors">
               Contact Us
-            </a>
+            </button>
             <a
               href={siteConfig.termsPath}
               onClick={() =>

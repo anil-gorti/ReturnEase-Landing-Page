@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="140" viewBox="0 0 520 140" role="img" aria-label="ReturnEase logo variant 1">
+  <rect width="520" height="140" fill="#FAFAF5" />
+  <rect x="18" y="22" width="96" height="96" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="4" />
+  <path d="M36 54h32c11 0 20 9 20 20s-9 20-20 20H36" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="square" />
+  <path d="M48 43l-13 10 13 10" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter" />
+  <text x="138" y="76" fill="#1A1A1A" font-family="DM Serif Display, Georgia, serif" font-size="56">ReturnEase</text>
+  <line x1="142" y1="92" x2="458" y2="92" stroke="#D97706" stroke-width="5" />
+  <text x="142" y="112" fill="#4B5563" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">PLAN YOUR INDIA RETURN IN 180 DAYS</text>
+</svg>

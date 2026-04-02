@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="130" viewBox="0 0 600 130" role="img" aria-label="ReturnEase logo variant 3">
+  <rect width="600" height="130" fill="#FAFAF5" />
+  <path d="M48 43h42c14 0 25 11 25 25s-11 25-25 25H48" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="square" />
+  <path d="M62 31l-14 12 14 12" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter" />
+  <text x="132" y="78" fill="#1A1A1A" font-family="DM Serif Display, Georgia, serif" font-size="64">ReturnEase</text>
+  <circle cx="498" cy="66" r="8" fill="#D97706" stroke="#1A1A1A" stroke-width="2" />
+</svg>

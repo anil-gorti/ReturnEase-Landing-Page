@@ -9,6 +9,9 @@ export const siteConfig = {
   termsPath: '/terms.html',
   privacyPath: '/privacy.html',
   analyticsDomain: 'returnease.in',
+  contactWebhookUrl:
+    import.meta.env.VITE_CONTACT_WEBHOOK_URL ??
+    'https://formsubmit.co/ajax/hello@returnease.in',
   leadWebhookUrl:
     import.meta.env.VITE_LEAD_WEBHOOK_URL ??
     'https://formsubmit.co/ajax/hello@returnease.in',

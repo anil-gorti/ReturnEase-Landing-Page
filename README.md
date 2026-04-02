@@ -45,6 +45,7 @@ Create `.env.local` to override defaults:
 
 ```bash
 VITE_LEAD_WEBHOOK_URL=https://your-webhook-endpoint
+VITE_CONTACT_WEBHOOK_URL=https://your-contact-webhook-endpoint
 VITE_BOOKING_URL=https://your-calendly-or-booking-link
 ```
 
