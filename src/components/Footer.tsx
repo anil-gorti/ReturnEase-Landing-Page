@@ -1,24 +1,63 @@
-import React from 'react';
+import { siteConfig } from '../config/site';
+import { trackEvent } from '../lib/analytics';
+import { BrandLogo } from './BrandLogo';
 export function Footer() {
   return (
     <footer className="bg-cream py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           <div className="text-center md:text-left">
-            <div className="font-serif text-2xl text-ink mb-1">ReturnEase</div>
-            <div className="text-ink/60 text-sm font-bold uppercase tracking-wider">
+            <BrandLogo compact />
+            <div className="text-ink/60 text-xs font-bold uppercase tracking-[0.16em] mt-2">
               The Operating System for NRIs.
             </div>
           </div>
 
           <div className="flex items-center gap-6 text-sm font-bold text-ink/60 uppercase tracking-wider">
-            <a href="#" className="hover:text-amber-600 transition-colors">
+            <a
+              href={`mailto:${siteConfig.contactEmail}`}
+              onClick={() =>
+                trackEvent('cta_click', {
+                  location: 'footer',
+                  cta: 'contact_us',
+                })
+              }
+              className="hover:text-amber-600 transition-colors">
               Contact Us
             </a>
-            <a href="#" className="hover:text-amber-600 transition-colors">
+            <a
+              href={siteConfig.termsPath}
+              onClick={() =>
+                trackEvent('cta_click', {
+                  location: 'footer',
+                  cta: 'terms_of_service',
+                })
+              }
+              className="hover:text-amber-600 transition-colors">
+              Terms
+            </a>
+            <a
+              href={siteConfig.privacyPath}
+              onClick={() =>
+                trackEvent('cta_click', {
+                  location: 'footer',
+                  cta: 'privacy_policy',
+                })
+              }
+              className="hover:text-amber-600 transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-amber-600 transition-colors">
+            <a
+              href={siteConfig.linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent('cta_click', {
+                  location: 'footer',
+                  cta: 'linkedin',
+                })
+              }
+              className="hover:text-amber-600 transition-colors">
               LinkedIn
             </a>
           </div>

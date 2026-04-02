@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -9,6 +8,7 @@ import {
   Users,
   BookOpen } from
 'lucide-react';
+import { trackEvent } from '../lib/analytics';
 export function HeroSection() {
   return (
     <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-cream border-b-2 border-ink">
@@ -55,6 +55,12 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#discovery"
+                onClick={() =>
+                  trackEvent('cta_click', {
+                    location: 'hero',
+                    cta: 'get_personalized_playbook',
+                  })
+                }
                 className="group flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3.5 font-bold border-2 border-ink shadow-solid hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-solid-sm transition-all">
                 
                 Get My Personalized Playbook
@@ -62,6 +68,12 @@ export function HeroSection() {
               </a>
               <a
                 href="#protocol"
+                onClick={() =>
+                  trackEvent('cta_click', {
+                    location: 'hero',
+                    cta: 'view_sample_protocol',
+                  })
+                }
                 className="flex items-center justify-center gap-2 bg-white text-ink px-6 py-3.5 font-bold border-2 border-ink shadow-solid hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-solid-sm transition-all">
                 
                 View Sample Protocol

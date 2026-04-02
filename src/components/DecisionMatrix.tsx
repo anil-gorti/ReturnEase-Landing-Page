@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapPin, GraduationCap, ArrowRight, Info } from 'lucide-react';
+import { trackEvent } from '../lib/analytics';
 const locations = [
 'Whitefield',
 'Sarjapur',
@@ -56,10 +57,13 @@ export function DecisionMatrix() {
           {/* Controls */}
           <div className="px-6 py-5 border-b-2 border-ink bg-white flex flex-col sm:flex-row gap-5 items-end">
             <div className="flex-1 w-full">
-              <label className="block text-[11px] font-bold text-ink/50 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+              <label
+                htmlFor="office-location"
+                className="block text-[11px] font-bold text-ink/50 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                 <MapPin className="w-3 h-3" /> Office Location
               </label>
               <select
+                id="office-location"
                 className="w-full bg-cream border-2 border-ink px-4 py-2.5 text-sm font-bold text-ink focus:outline-none focus:border-amber-600 transition-colors appearance-none"
                 value={selectedLoc}
                 onChange={(e) => setSelectedLoc(e.target.value)}>
@@ -72,10 +76,13 @@ export function DecisionMatrix() {
               </select>
             </div>
             <div className="flex-1 w-full">
-              <label className="block text-[11px] font-bold text-ink/50 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+              <label
+                htmlFor="school-preference"
+                className="block text-[11px] font-bold text-ink/50 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                 <GraduationCap className="w-3 h-3" /> School Preference
               </label>
               <select
+                id="school-preference"
                 className="w-full bg-cream border-2 border-ink px-4 py-2.5 text-sm font-bold text-ink focus:outline-none focus:border-amber-600 transition-colors appearance-none"
                 value={selectedSchool}
                 onChange={(e) => setSelectedSchool(e.target.value)}>
@@ -186,6 +193,12 @@ export function DecisionMatrix() {
             </span>
             <a
               href="#discovery"
+              onClick={() =>
+                trackEvent('cta_click', {
+                  location: 'decision_matrix',
+                  cta: 'get_personalized_matrix',
+                })
+              }
               className="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
               
               Get your personalized matrix{' '}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="ReturnEase mark">
+  <rect width="96" height="96" fill="#FAFAF5"/>
+  <rect x="8" y="8" width="80" height="80" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="4"/>
+  <path d="M23 36h26c9.4 0 17 7.6 17 17s-7.6 17-17 17H23" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="square"/>
+  <path d="M33 27l-12 9 12 9" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

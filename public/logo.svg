@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="ReturnEase logo">
+  <rect width="420" height="120" fill="#FAFAF5"/>
+  <g transform="translate(14,14)">
+    <rect x="0" y="0" width="92" height="92" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="4"/>
+    <path d="M20 34h30c10.5 0 19 8.5 19 19s-8.5 19-19 19H20" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="square"/>
+    <path d="M31 25l-12 9 12 9" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+  <text x="124" y="64" fill="#1A1A1A" font-family="DM Serif Display, Georgia, serif" font-size="52">ReturnEase</text>
+  <text x="126" y="88" fill="#4B5563" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">RETURN PROTOCOL SYSTEM</text>
+</svg>

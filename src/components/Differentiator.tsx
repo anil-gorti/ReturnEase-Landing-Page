@@ -1,4 +1,3 @@
-import React from 'react';
 import { CheckCircle2, XCircle, MinusCircle } from 'lucide-react';
 const comparisonData = [
 {

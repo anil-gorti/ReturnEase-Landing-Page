@@ -1,10 +1,7 @@
-import React from 'react';
 import {
   RefreshCcw,
   Smartphone,
-  CreditCard,
   Home,
-  ArrowDown,
   Check } from
 'lucide-react';
 export function LoopBreaker() {

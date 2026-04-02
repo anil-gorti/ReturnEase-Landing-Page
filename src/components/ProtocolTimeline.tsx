@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Target, Clock } from 'lucide-react';
 const phaseGroups = [
@@ -102,15 +102,19 @@ export function ProtocolTimeline() {
               <div className="space-y-3">
                 {group.phases.map((phase) => {
                 const isActive = activePhase === phase.num;
+                const detailsId = `phase-details-${phase.num}`;
                 return (
                   <div
                     key={phase.num}
                     className={`bg-white border-2 transition-all duration-200 overflow-hidden ${isActive ? 'border-ink shadow-solid' : 'border-ink/15 hover:border-ink/40'}`}>
                     
                       <button
+                      type="button"
                       onClick={() =>
                       setActivePhase(isActive ? null : phase.num)
                       }
+                      aria-expanded={isActive}
+                      aria-controls={detailsId}
                       className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none gap-4">
                       
                         <div className="flex items-center gap-4 min-w-0">
@@ -140,6 +144,7 @@ export function ProtocolTimeline() {
                       <AnimatePresence>
                         {isActive &&
                       <motion.div
+                        id={detailsId}
                         initial={{
                           height: 0,
                           opacity: 0

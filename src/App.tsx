@@ -1,5 +1,5 @@
-import React from 'react';
 import { HeroSection } from './components/HeroSection';
+import { SiteHeader } from './components/SiteHeader';
 import { ProtocolTimeline } from './components/ProtocolTimeline';
 import { DecisionMatrix } from './components/DecisionMatrix';
 import { LoopBreaker } from './components/LoopBreaker';
@@ -9,7 +9,10 @@ import { FounderNote } from './components/FounderNote';
 import { Footer } from './components/Footer';
 export function App() {
   return (
-    <div className="min-h-screen bg-cream font-sans text-ink selection:bg-amber-500 selection:text-white">
+    <div
+      id="top"
+      className="min-h-screen bg-cream font-sans text-ink selection:bg-amber-500 selection:text-white">
+      <SiteHeader />
       <HeroSection />
       <ProtocolTimeline />
       <DecisionMatrix />
