@@ -1,3 +1,5 @@
+> ⚠️ Consolidated into [anil-gorti/Travel-India](https://github.com/anil-gorti/Travel-India). This repository is archived and kept for historical reference.
+
 # ReturnEase Landing Page
 
 Marketing landing page for **ReturnEase**, a concierge planning service helping NRI tech families return to India with a sequenced, execution-first playbook.
